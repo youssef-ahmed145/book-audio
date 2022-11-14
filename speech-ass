@@ -1,0 +1,14 @@
+import pyttsx3
+import PyPDF2
+
+book = open('NURTURES- CALLING.pdf', 'rb')
+pdfReader = PyPDF2.PdfFileReader(book)
+pages = pdfReader.numPages
+print(pages)
+Speaker = pyttsx3.init()
+Speaker.say("hello,doctor Rahma my name is youssef and this my assignment")
+for num in range(0, 32):
+    page = pdfReader.getPage(num)
+    text = page.extractText()
+    Speaker.say(text)
+    Speaker.runAndWait()
